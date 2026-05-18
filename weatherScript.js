@@ -40,13 +40,15 @@ async function checkWeather(city) {
     document.querySelector(".error").style.display = "block";
   }
 }
-searchIcon.addEventListener("click", () => {
+function searchWeather() {
   checkWeather(wantedcity.value);
-});
-// checkWeather();
+  wantedcity.value = "";
+}
 
-wantedcity.addEventListener("keydown", function (e) {
+searchIcon.addEventListener("click", searchWeather);
+
+wantedcity.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    checkWeather(wantedcity.value);
+    searchWeather();
   }
 });
